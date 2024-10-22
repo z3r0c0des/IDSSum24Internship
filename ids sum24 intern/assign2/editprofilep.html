@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Profile</title>
+    <link rel="stylesheet" href="styling.css">
+</head>
+<body>
+    <h1>Edit Profile</h1>
+    <form action="updateprofile.php" method="post">
+        <label for="fname">First Name:</label>
+        <input type="text" name="fname" id="fname" required><br>
+
+        <label for="lname">Last Name:</label>
+        <input type="text" name="lname" id="lname" required><br>
+
+        <label for="email">Email:</label>
+        <input type="email" name="email" id="email" required><br>
+
+        <label for="address">Address:</label>
+        <textarea name="address" id="address" required></textarea><br>
+
+        <label for="education">Education:</label>
+        <input type="text" name="education" id="education" required><br>
+
+        <label for="graduationdate">Graduation Date:</label>
+        <input type="date" name="graduationdate" id="graduationdate" required><br>
+
+        <label for="experience">Experience (in years):</label>
+        <input type="number" name="experience" id="experience" required><br>
+
+        <label for="skills">Skills:</label><br>
+        <input type="checkbox" name="skills[]" value="PHP" id="php">
+        <label for="php">PHP</label>
+        <input type="checkbox" name="skills[]" value="JavaScript" id="javascript">
+        <label for="javascript">JavaScript</label>
+        <input type="checkbox" name="skills[]" value="HTML" id="html">
+        <label for="html">HTML</label>
+        <input type="checkbox" name="skills[]" value="CSS" id="css">
+        <label for="css">CSS</label>
+        <input type="checkbox" name="skills[]" value="SQL" id="sql">
+        <label for="sql">SQL</label><br>
+
+        <input type="submit" value="Update Profile">
+    </form>
+
+    <script>
+        // Fetch the user data and populate the form
+        fetch('profile.php')
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.json();
+            })
+            .then(data => {
+                document.getElementById('fname').value = data.fname;
+                document.getElementById('lname').value = data.lname;
+                document.getElementById('email').value = data.email;
+                document.getElementById('address').value = data.address;
+                document.getElementById('education').value = data.education;
+                document.getElementById('graduationdate').value = data.graduationdate;
+                document.getElementById('experience').value = data.experience;
+
+                const skills = data.skills;
+                skills.forEach(skill => {
+                    const checkbox = document.querySelector(`input[name="skills[]"][value="${skill}"]`);
+                    if (checkbox) {
+                        checkbox.checked = true;
+                    }
+                });
+            })
+            .catch(error => console.error('Error fetching user data:', error));
+    </script>
+</body>
+</html>

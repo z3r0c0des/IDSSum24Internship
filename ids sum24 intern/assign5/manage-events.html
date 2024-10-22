@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage Events</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <button onclick="window.location.href='admin.html'" id="back-to-admin-btn">Back to Admin</button>
+    </header>
+    <main>
+        <h1>Manage Events</h1>
+        <!-- Event Management Form and Table -->
+        <form id="event-form">
+            <input type="text" id="event-name" placeholder="Event Name" required>
+            <input type="date" id="event-date-from" required>
+            <input type="date" id="event-date-to" required>
+            <button type="submit">Add Event</button>
+        </form>
+        <div id="events-table"></div>
+    </main>
+    <script src="main.js"></script>
+</body>
+</html>

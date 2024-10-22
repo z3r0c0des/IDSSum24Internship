@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Events</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <button id="logout-btn" onclick="window.location.href='logout.php'">Logout</button>
+        <button id="admin-login-btn" onclick="window.location.href='admin_login.html'">Admin Login</button>
+        <h2>All Events</h2>
+    </header>
+    
+    <form id="lookupForm">
+        <label for="status">Filter by Status:</label>
+        <select id="status" name="status">
+            <option value="">All</option>
+            <option value="Planned">Planned</option>
+            <option value="Ongoing">Ongoing</option>
+            <option value="Completed">Completed</option>
+        </select>
+        <button type="submit">Lookup</button>
+    </form>
+    
+    <div class="events-container" id="events-container">
+        <!-- Events will be dynamically loaded here -->
+    </div>
+    
+    <script src="events.js"></script>
+</body>
+</html>

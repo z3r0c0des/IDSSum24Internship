@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage Members</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <button onclick="window.location.href='admin.html'">Back to Admin</button>
+    </header>
+    <main>
+        <h1>Manage Members</h1>
+        <!-- Member Management Form and Table -->
+        <form id="member-form">
+            <input type="text" id="member-name" placeholder="Member Name" required>
+            <input type="email" id="member-email" placeholder="Email" required>
+            <button type="submit">Add Member</button>
+        </form>
+        <div id="members-table"></div>
+    </main>
+    <script src="main.js"></script>
+</body>
+</html>
